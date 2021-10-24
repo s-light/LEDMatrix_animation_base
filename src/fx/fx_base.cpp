@@ -97,6 +97,15 @@ uint16_t FXBase::get_loopcount() {
 }
 
 
+float FXBase::set_position(float position_) {
+    position = clamp01(position_);
+    return position;
+}
+
+float FXBase::get_position() {
+    return position;
+}
+
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // animation
 
