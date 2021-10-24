@@ -99,7 +99,12 @@ uint16_t FXBase::get_loopcount() {
 
 float FXBase::set_position(float position_) {
     position = clamp01(position_);
+    // the return position triggers a warning that could be a bug in gcc...
+    // so for now we ignore it.
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
     return position;
+    #pragma GCC diagnostic pop
 }
 
 float FXBase::get_position() {
