@@ -1,4 +1,4 @@
-/******************************************************************************
+ /******************************************************************************
 
     __doc__ = """
     animation.py - TLC5971 & FancyLED & 2D Array / Mapping.
@@ -203,6 +203,10 @@ private:
     void effect__pixel_checker();
     void effect__line();
 
+    PixelPos * pixel_pos = new PixelPos();
+    // ^ used by effect_Matrix2D -
+    // defined globally maybe for performance reasons.
+    // (test did not show difference.)
     void effect_Matrix2D();
     CHSV effect_Matrix2D_get_pixel( __attribute__((unused)) PixelPos * pixel_pos);
     // CHSV effect_Matrix2D_get_pixel(float col, float row, float offset);

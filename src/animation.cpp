@@ -257,9 +257,9 @@ void MyAnimation::menu__time_meassurements(Print &out) {
 
 
 
-    out.print(F("update_position:         "));
+    out.print(F("calculate_effect_position:         "));
     tm_start = micros();
-    update_position();
+    calculate_effect_position();
     tm_end = micros();
     tm_duration = (tm_end - tm_start);
     out.print(tm_duration);
@@ -753,7 +753,8 @@ void MyAnimation::effect_Matrix2D() {
     //     effect_position,
     //     0, MATRIX_ROW_COUNT);
 
-    PixelPos * pixel_pos = new PixelPos();
+    // PixelPos * pixel_pos = new PixelPos();
+    // ^ now globally defined.
     pixel_pos->progress = effect_position;
     // Serial.println("");
 
@@ -813,6 +814,7 @@ void MyAnimation::effect_Matrix2D() {
             //     0);
         }
     }
+    // delete pixel_pos;
 }
 
 
